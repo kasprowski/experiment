@@ -12,7 +12,7 @@ public static void main(String[] args) {
 	reader = new ComReader("COM6");
 	// 9punktowa kalibracja ExpCalibrationStim9, calibrator a potem ExpVisualizer z obliczonymi wspó³czynnikami
 	//new StartCalibrator(reader);
-	
+	// dfsdfs
 	// 4punktowa kalibracja, calibrator, sprawdzenie czy ok, 9punktowa kalibracja, kó³ko (ExpCircle) i koniec
 	//new StartExperiment1(reader);
 	
