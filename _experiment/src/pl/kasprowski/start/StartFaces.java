@@ -46,7 +46,7 @@ public class StartFaces extends JFrame{
 
 		if(rd!=null) reader = rd;
 		//reader = new ComReader("COM14");
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		//setDefaultCloseOperation(EXIT_ON_CLOSE);
 
 		setSize(1200,720);
 		

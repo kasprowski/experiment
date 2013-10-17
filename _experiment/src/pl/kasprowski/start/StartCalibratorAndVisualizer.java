@@ -9,13 +9,12 @@ import org.apache.log4j.Logger;
 
 import pl.kasprowski.buffer.IFrameBuffer;
 import pl.kasprowski.calibration.CalibratorRegression;
-import pl.kasprowski.jazz.ComReader;
 import pl.kasprowski.jazz.FakeReaderStim;
 import pl.kasprowski.jazz.Reader;
 import pl.kasprowski.stimulus.ExpVisualizer;
 import pl.kasprowski.stimulus.Experiment;
 import pl.kasprowski.stimulus.ExperimentCallback;
-import pl.kasprowski.stimulus.rfl.ExpCalibrationStim9;
+import pl.kasprowski.stimulus.rfl.ExpCalibrationStim16;
 
 /**
  * Pokazuje 9 punktow¹ kalibracjê (ExpCalibrationStim9) a potem ekran z gazepointem (ExpVisualizer)
@@ -23,21 +22,21 @@ import pl.kasprowski.stimulus.rfl.ExpCalibrationStim9;
  * @author pawel
  *
  */
-public class StartCalibrator extends JFrame{
+public class StartCalibratorAndVisualizer extends JFrame{
 	private static final long serialVersionUID = 1L;
 
-	Logger log = Logger.getLogger(StartCalibrator.class);
+	Logger log = Logger.getLogger(StartCalibratorAndVisualizer.class);
 
 	Experiment expPanel;
 
 
 	public static void main(String[] args) {
-		new StartCalibrator(null);
+		new StartCalibratorAndVisualizer(null);
 	}
 
 	Reader reader = new FakeReaderStim();
 	
-	public StartCalibrator(Reader rd) {
+	public StartCalibratorAndVisualizer(Reader rd) {
 		JPanel cP = (JPanel)this.getContentPane();
 		cP.setLayout(new BorderLayout());
 
@@ -50,7 +49,7 @@ public class StartCalibrator extends JFrame{
 
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 
-		setSize(1000,780);
+		setSize(1000,700);
 		//pack();
 		setLocationRelativeTo(null);
 		setVisible(true);
@@ -63,7 +62,7 @@ public class StartCalibrator extends JFrame{
 	 * @return
 	 */
 	private JPanel showCalibrator(Reader reader) {
-		expPanel = new ExpCalibrationStim9(new ExperimentCallback() {
+		expPanel = new ExpCalibrationStim16(new ExperimentCallback() {
 			public void finished(IFrameBuffer buffer) {
 				calibrate(buffer);
 			}},reader);
@@ -84,7 +83,7 @@ public class StartCalibrator extends JFrame{
 		} catch (InterruptedException e) {e.printStackTrace();}
 
 		//zapis na dysk
-		buffer.serialize();
+		buffer.serializeP("c16");
 		
 
 		//CalibratorMinmax c = new CalibratorMinmax(buffer);

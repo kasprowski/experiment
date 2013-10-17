@@ -25,8 +25,11 @@ public class Calc {
 		//System.out.println("Calculating coef: ["+omin+","+omax+"] ["+nmin+","+nmax+"]");
 		double[] coef = new double[2];
 		coef[0] = (nmax-nmin)/(omax-omin);
+		System.out.println("COEF[0]="+coef[0]);
+		if(coef[0]>2) coef[0]=2; //TODO Na sztywno ograniczam z góry coef[0]!
+		if(coef[0]<-2) coef[0]=-2; //TODO Na sztywno ograniczam z góry coef[0]!
 		coef[1] = nmin-omin*coef[0];
-	//	System.out.println("Calculating coef: ["+omin+","+omax+"] ["+nmin+","+nmax+"] > "+coef[0]+","+coef[1]);
+		System.out.println("Calculating coef: ["+omin+","+omax+"] ["+nmin+","+nmax+"] > "+coef[0]+","+coef[1]);
 		return  coef;
 	}
 	

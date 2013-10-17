@@ -21,7 +21,7 @@ import pl.kasprowski.stimulus.ExperimentCallback;
 public class StartLive extends JFrame{
 	private static final long serialVersionUID = 1L;
 
-	Logger log = Logger.getLogger(StartCalibrator.class);
+	Logger log = Logger.getLogger(StartCalibratorAndVisualizer.class);
 	Reader reader = new FakeReaderStaticPoint();
 
 	public static void main(String[] args) {
@@ -40,10 +40,10 @@ public class StartLive extends JFrame{
 			}
 		},reader));
 		//setSize(700,700);
-		setSize(1000,780);
+		setSize(1000,700);
 		setLocationRelativeTo(null);
 		setVisible(true);
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		//setDefaultCloseOperation(EXIT_ON_CLOSE);
 	}
 	
 	
